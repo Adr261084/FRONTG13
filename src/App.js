@@ -4,6 +4,7 @@ import Login from "./Componentes/Login";
 import CrearCuenta from "./Componentes/CrearCuenta";
 import Admin from "./Componentes/Admin";
 import Home from "./Componentes/Home";
+import CrearCategoria from "./Componentes/CrearCategoria";
 
 function App() {
     return (
@@ -15,6 +16,7 @@ function App() {
                         <Route path="/login" exact element={<Login/>}/>
                         <Route path="/crear-cuenta" exact element={<CrearCuenta/>}/>
                         <Route path="/admin" exact element={<Admin/>}/>
+                        <Route path="/crear-categoria" exact element={<CrearCategoria/>}/>
 
                     </Routes>
                 </Router>

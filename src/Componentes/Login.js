@@ -49,10 +49,6 @@ const Login = () => {
             console.log(jwt);
             localStorage.setItem('token', jwt);
 
-
-
-
-
             navigate("/admin");
         }
     }
