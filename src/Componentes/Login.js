@@ -45,8 +45,14 @@ const Login = () => {
                 }
             });
         } else {
-            const mensaje = response.token;
-            console.log(mensaje);
+            const jwt = response.token;
+            console.log(jwt);
+            localStorage.setItem('token', jwt);
+
+
+
+
+
             navigate("/admin");
         }
     }
