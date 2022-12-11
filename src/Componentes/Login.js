@@ -46,15 +46,14 @@ const Login = () => {
             });
         } else {
             const jwt = response.token;
-            console.log(jwt);
+            //console.log(jwt);
             localStorage.setItem('token', jwt);
-
             navigate("/admin");
         }
     }
 
-    const onSubmit = (e) => {
-        e.preventDefault();
+    const onSubmit = (evento) => {
+        evento.preventDefault();
         autenticarUsuario();
     }
 
@@ -78,8 +77,12 @@ const Login = () => {
                         <br/>
                         <label className="uppercase text-gray-600 block text-xl font-bold">password
                         </label>
-                        <input type="password" placeholder="password de registro"
-                               id="password" name="password" value={password} onChange={onChange}
+                        <input type="password"
+                               placeholder="password de registro"
+                               id="password"
+                               name="password"
+                               value={password}
+                               onChange={onChange}
                                className="w-full mt-3 p-3 rounded-lg bg-gray-50"
                                required
                         />
