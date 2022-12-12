@@ -60,10 +60,16 @@ const Admin = () => {
 
     };
     const actualizarCategoria = async (id, nombre) => {
+        localStorage.setItem('idCategoria', id);
+        localStorage.setItem('nombreCategoria', nombre);
+        navigate("/actualizar-categoria");
+    };
+
+    const crearProducto = async (id, nombre) => {
 
         localStorage.setItem('idCategoria', id);
-        localStorage.setItem('nombreX', nombre);
-        navigate("/actualizar-categoria");
+        localStorage.setItem('nombreCategoria', nombre);
+        navigate("/crear-producto");
 
     };
 
@@ -86,16 +92,18 @@ const Admin = () => {
                         <tr key={item._id}>
                             <td className="border border-orange-300 border-2 px-5 py-1">{item.nombre}</td>
                             <td className="border border-orange-300 border-2 px-5 py-1">
-                                <Link className="bg-green-600 rounded-lg px-2 ">Crear Producto</Link>
-                            </td>
-                            <td className="border border-orange-300 border-2 px-5 py-1">
                                 <button className="bg-blue-600 rounded-lg px-2 "
-                                        onClick={() => actualizarCategoria(`${item._id}`,`${item.nombre}`)}>Editar
+                                        onClick={() => actualizarCategoria(`${item._id}`, `${item.nombre}`)}>Editar
                                 </button>
-                        </td>
+                            </td>
                             <td className="border border-orange-300 border-2 px-5 py-1">
                                 <button className="bg-red-600 rounded-lg px-2 "
                                         onClick={() => eliminarCategoria(`${item._id}`)}>Eliminar
+                                </button>
+                            </td>
+                            <td className="border border-orange-300 border-2 px-5 py-1">
+                                <button className="bg-green-600 rounded-lg px-2 "
+                                        onClick={() => crearProducto(`${item._id}`, `${item.nombre}`)}>Crear Producto
                                 </button>
                             </td>
                         </tr>)}

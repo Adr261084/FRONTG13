@@ -111,7 +111,8 @@ const CrearCuenta = () => {
                         <label className="uppercase text-gray-600 block text-xl font-bold">Nombre
                         </label>
                         <input type="nombre" placeholder="Ingrese su nombre"
-                               id="nombre" name="nombre" value={nombre} onChange={onChange}
+                               id="nombre" name="nombre" value={nombre}
+                               onChange={onChange}
                                className="w-full mt-3 p-3 rounded-lg bg-gray-50"
                                required
                         />

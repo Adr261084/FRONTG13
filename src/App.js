@@ -6,6 +6,7 @@ import Admin from "./Componentes/Admin";
 import Home from "./Componentes/Home";
 import CrearCategoria from "./Componentes/CrearCategoria";
 import ActualizarCategoria from "./Componentes/ActualizarCategoria";
+import CrearProducto from "./Componentes/CrearProducto";
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                         <Route path="/admin" exact element={<Admin/>}/>
                         <Route path="/crear-categoria" exact element={<CrearCategoria/>}/>
                         <Route path="/actualizar-categoria" exact element={<ActualizarCategoria/>}/>
+                        <Route path="/crear-producto" exact element={<CrearProducto/>}/>
 
                     </Routes>
                 </Router>

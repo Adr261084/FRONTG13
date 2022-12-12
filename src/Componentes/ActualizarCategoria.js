@@ -5,6 +5,7 @@ import {Link, useNavigate} from "react-router-dom";
 import crud from "../Conexiones/crud";
 import swal from "sweetalert";
 
+
 const ActualizarCategoria = () => {
 
     const navigate = useNavigate();
@@ -20,7 +21,7 @@ const ActualizarCategoria = () => {
     const cargarCategoria = async () => {
         try {
             const response = await crud.GET(`/api/categoria/${idRecibido}`);
-            localStorage.setItem('nombreX', response.nombre);
+            localStorage.setItem('nombreCategoria', response.nombre);
         } catch (e){
             console.log(e);
         }
@@ -61,7 +62,7 @@ const ActualizarCategoria = () => {
         setCategoria({
             nombre: ""
         });
-        localStorage.removeItem('nombreX');
+        localStorage.removeItem('nombreCategoria');
         navigate("/admin");
     }
 
@@ -105,7 +106,7 @@ const ActualizarCategoria = () => {
                                     />
                                     <label className="uppercase text-gray-600 block text-xl font-bold">Nombre
                                     </label>
-                                    <input type="text" placeholder={localStorage.getItem('nombreX') || 'no cargada'}
+                                    <input type="text" placeholder={localStorage.getItem('nombreCategoria') || 'no cargada'}
                                            id="nombre"
                                            name="nombre"
                                            value={nombre}

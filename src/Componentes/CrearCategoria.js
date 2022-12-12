@@ -68,36 +68,35 @@ const CrearCategoria = () => {
                         font-display text-5xl tracking-tight text-transparent">
                             Crear Categoria
                         </h1>
-                        <div className="mt-10 flex justify-center">
-
-                            <form
-                                onSubmit={onSubmit}
-                                className="my-10 bg-white shadow-orange-500 rounded-lg p-10"
-                            >
-                                <div className="my-5">
-                                    <label className="uppercase text-gray-600 block text-xl font-bold">Nombre
-                                    </label>
-                                    <input type="nombre" placeholder="Ingrese nombre"
-                                           id="nombre"
-                                           name="nombre"
-                                           value={nombre}
-                                           onChange={onChange}
-                                           className="w-full mt-3 p-3 rounded-lg bg-gray-50"
-                                           required
-                                    />
-                                    <input
-                                        type="submit"
-                                        value="Crear categoria"
-                                        className="bg-violet-600 mb-5 w-full py-3 text-white uppercase font-bold rounded hover:cursor-pointer hover:bg-violet-400 transition-colors"
-                                    />
-                                    <Link
-                                        to={"/admin"}
-                                        className="block text-center my-5 text-violet-600 uppercase text-sm"
-                                    >Regresar</Link>
-                                </div>
-                            </form>
-                        </div>
                     </div>
+                    <div className="mt-10 flex justify-center">
+                        <form
+                            onSubmit={onSubmit}
+                            className="my-10 bg-white shadow-orange-500 rounded-lg p-10"
+                        >
+                            <div className="my-5">
+                                <label className="uppercase text-gray-600 block text-xl font-bold">Nombre</label>
+                                <input type="text" placeholder="Ingrese nombre"
+                                       id="nombre"
+                                       name="nombre"
+                                       value={nombre}
+                                       onChange={onChange}
+                                       className="w-full mt-3 p-3 rounded-lg bg-gray-50"
+                                       required
+                                />
+                                <input
+                                    type="submit"
+                                    value="Crear categoria"
+                                    className="bg-violet-600 mb-5 w-full py-3 text-white uppercase font-bold rounded hover:cursor-pointer hover:bg-violet-400 transition-colors"
+                                />
+                                <Link
+                                    to={"/admin"}
+                                    className="block text-center my-5 text-violet-600 uppercase text-sm"
+                                >Regresar</Link>
+                            </div>
+                        </form>
+                    </div>
+
                 </main>
             </div>
         </>
