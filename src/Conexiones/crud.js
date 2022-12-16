@@ -1,6 +1,7 @@
 import back from "./back";
 
 class crud {
+
     async GET(resource) {
         const token = localStorage.getItem("token");
         let bearer;
@@ -21,7 +22,6 @@ class crud {
         let response = (await (await fetch(url, data)).json());
         return response;
     }
-
     async POST(resource, body) {
 
         const token = localStorage.getItem("token");
@@ -46,6 +46,7 @@ class crud {
     }
 
     async PUT(resource, body) {
+
         const token = localStorage.getItem("token");
         let bearer;
         if (token === " ") {
@@ -53,7 +54,6 @@ class crud {
         } else {
             bearer = `${token}`
         }
-
         const data = {
             method: 'PUT',
             body: JSON.stringify(body),
@@ -63,6 +63,7 @@ class crud {
             }
         }
         const url = `${back.api.baseURL}${resource}`;
+
         let response = (await (await fetch(url, data)).json());
         return response;
     }
@@ -83,6 +84,7 @@ class crud {
             }
         }
         const url = `${back.api.baseURL}${resource}`;
+        console.log(url);
         let response = (await (await fetch(url, data)).json());
         return response;
     }

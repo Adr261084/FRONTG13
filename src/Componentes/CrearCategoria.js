@@ -10,10 +10,11 @@ const CrearCategoria = () => {
     const navigate = useNavigate();
 
     const [categoria, setCategoria] = useState({
-        nombre: ''
+        nombre: '',
+        imagen: ''
     });
 
-    const {nombre} = categoria;
+    const {nombre, imagen} = categoria;
 
     const onChange = (e) => {
         setCategoria({
@@ -23,7 +24,8 @@ const CrearCategoria = () => {
 
     const crearCategoria = async () => {
         const data = {
-            nombre: categoria.nombre
+            nombre: categoria.nombre,
+            imagen: categoria.imagen
         }
         const response = await crud.POST(`/api/categoria`, data);
         console.log(response.msg || "ok");
@@ -45,7 +47,8 @@ const CrearCategoria = () => {
         });
 
         setCategoria({
-            nombre: ""
+            nombre: "",
+            imagen: ""
         });
         navigate("/admin");
     }
@@ -80,6 +83,15 @@ const CrearCategoria = () => {
                                        id="nombre"
                                        name="nombre"
                                        value={nombre}
+                                       onChange={onChange}
+                                       className="w-full mt-3 p-3 rounded-lg bg-gray-50"
+                                       required
+                                />
+                                <label className="uppercase text-gray-600 block text-xl font-bold">Imagen</label>
+                                <input type="text" placeholder="Ingrese imagen de categoria"
+                                       id="imagen"
+                                       name="imagen"
+                                       value={imagen}
                                        onChange={onChange}
                                        className="w-full mt-3 p-3 rounded-lg bg-gray-50"
                                        required

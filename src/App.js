@@ -6,7 +6,9 @@ import Admin from "./Componentes/Admin";
 import Home from "./Componentes/Home";
 import CrearCategoria from "./Componentes/CrearCategoria";
 import ActualizarCategoria from "./Componentes/ActualizarCategoria";
-import CrearProducto from "./Componentes/CrearProducto";
+import CrearProducto from "./Componentes/Productos/CrearProducto";
+import HomeProductos from "./Componentes/Productos/HomeProductos";
+import ActualizarProducto from "./Componentes/Productos/ActualizarProducto";
 
 function App() {
     return (
@@ -19,8 +21,10 @@ function App() {
                         <Route path="/crear-cuenta" exact element={<CrearCuenta/>}/>
                         <Route path="/admin" exact element={<Admin/>}/>
                         <Route path="/crear-categoria" exact element={<CrearCategoria/>}/>
-                        <Route path="/actualizar-categoria" exact element={<ActualizarCategoria/>}/>
-                        <Route path="/crear-producto" exact element={<CrearProducto/>}/>
+                        <Route path="/actualizar-categoria/:idCategoria" exact element={<ActualizarCategoria/>}/>
+                        <Route path="/home-productos/:idCategoria" exact element={<HomeProductos/>}/>
+                        <Route path="/crear-producto/:idCategoria" exact element={<CrearProducto/>}/>
+                        <Route path="/actualizar-producto/:idProducto" exact element={<ActualizarProducto/>}/>
 
                     </Routes>
                 </Router>

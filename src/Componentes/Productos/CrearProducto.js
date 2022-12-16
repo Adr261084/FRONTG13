@@ -1,27 +1,32 @@
-import React, {useState} from "react";
-import Sidebar from "./Sidebar";
-import Header from "./Header";
-import crud from "../Conexiones/crud";
+import React, {useEffect, useState} from "react";
+import Sidebar from "../Sidebar";
+import Header from "../Header";
+import crud from "../../Conexiones/crud";
 import swal from "sweetalert";
-import {Link, useNavigate} from "react-router-dom";
+import {Link, useNavigate, useParams} from "react-router-dom";
 
 const CrearProducto = () => {
 
     const navigate = useNavigate();
-
-
-    const idCategoria = localStorage.getItem("idCategoria");
-    const nombreCategoria = localStorage.getItem("nombreCategoria");
+    const {idCategoria} = useParams();
 
     const [producto, setProducto] = useState({
         nombre: '',
         descripcion: '',
-        stock: 0,
-        precio: 0,
-        imagen: ''
+        stock: '',
+        precio: '',
+        imagen: '',
+        categoriaId: ''
+    });
+    const [categoria, setCategoria] = useState({
+        nombreCat: '',
+        imagenCat: ''
     });
 
     const {nombre, descripcion, stock, precio, imagen} = producto;
+
+    const nombreCat = categoria.nombreCat;
+    const imagenCat = categoria.imagenCat;
 
     const onChange = (evento) => {
         setProducto({
@@ -29,7 +34,18 @@ const CrearProducto = () => {
         });
     }
 
+    const cargarCategoria = async () => {
+        const response = await crud.GET(`/api/categoria/${idCategoria}`);
+
+        setCategoria({nombreCat: response.nombre, imagenCat: response.imagen});
+    }
+
+    useEffect(() => {
+        cargarCategoria();
+    }, [])
+
     const crearProducto = async () => {
+
         const data = {
             nombre: producto.nombre,
             descripcion: producto.descripcion,
@@ -38,11 +54,11 @@ const CrearProducto = () => {
             imagen: producto.imagen,
             categoriaId: idCategoria
         }
-        console.log(data);
+
         const response = await crud.POST(`/api/producto`, data);
         console.log(response.msg || "ok");
 
-        const mensaje = "Producto ha sido creado";
+        const mensaje = "ViewProductos ha sido creado";
         swal({
             title: 'Información',
             text: mensaje,
@@ -58,14 +74,7 @@ const CrearProducto = () => {
             }
         });
 
-        setProducto({
-            nombre: '',
-            descripcion: '',
-            stock: 0,
-            precio: 0,
-            imagen: ''
-        });
-        //navigate("/admin");
+        navigate(`/home-productos/${idCategoria}`);
     }
 
     const onSubmit = (evento) => {
@@ -88,8 +97,9 @@ const CrearProducto = () => {
                     <div className="mt-10 flex justify-center">
                         <h1 className="inline bg-gradient-to-r from-indigo-200 via-violet-700 to-indigo-200
                         bg-clip-text
-                        font-display text-3xl tracking-tight text-transparent">
-                            Categoria {nombreCategoria}
+                        font-display text-3xl tracking-tight text-transparent justify-center">
+                            {nombreCat} <br/>
+                            <img src={imagenCat} alt="no-resource" width="200" height="200"/>
                         </h1>
                     </div>
                     <div className="mt-10 flex justify-center">
@@ -146,11 +156,11 @@ const CrearProducto = () => {
                                 />
                                 <input
                                     type="submit"
-                                    value="Crear Producto"
+                                    value="Crear ViewProductos"
                                     className="bg-violet-600 mb-5 w-full py-3 text-white uppercase font-bold rounded hover:cursor-pointer hover:bg-violet-400 transition-colors"
                                 />
                                 <Link
-                                    to={"/admin"}
+                                    to={`/home-productos/${idCategoria}`}
                                     className="block text-center my-5 text-violet-600 uppercase text-sm"
                                 >Regresar</Link>
                             </div>

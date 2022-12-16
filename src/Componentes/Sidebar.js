@@ -10,6 +10,11 @@ const Sidebar = () => {
                 to={"/crear-categoria"}
                 className="bg-violet-600 w-full p-3 text-white uppercase font-bold block mt-5 text-center rounded-lg"
             >Crear Categoria</Link>
+            <br/>
+            <Link
+                to={"/admin"}
+                className="bg-violet-600 w-full p-3 text-white uppercase font-bold block mt-5 text-center rounded-lg"
+            >Home Categorias</Link>
         </aside>
     );
 }
