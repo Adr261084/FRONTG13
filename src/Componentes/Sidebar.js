@@ -15,6 +15,10 @@ const Sidebar = () => {
                 to={"/admin"}
                 className="bg-violet-600 w-full p-3 text-white uppercase font-bold block mt-5 text-center rounded-lg"
             >Home Categorias</Link>
+            <Link
+                to={"/lista-pedidos"}
+                className="bg-violet-600 w-full p-3 text-white uppercase font-bold block mt-5 text-center rounded-lg"
+            >Ver pedidos</Link>
         </aside>
     );
 }

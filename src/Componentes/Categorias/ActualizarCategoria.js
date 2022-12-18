@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
-import Header from "./Header";
-import Sidebar from "./Sidebar";
-import crud from "../Conexiones/crud";
+import Header from "../Header";
+import Sidebar from "../Sidebar";
+import crud from "../../Conexiones/crud";
 import {Link, useNavigate, useParams} from "react-router-dom";
 import swal from "sweetalert";
 

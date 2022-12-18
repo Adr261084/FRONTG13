@@ -39,14 +39,23 @@ const Admin = () => {
             dangerMode: true,
         }).then(async (willDelete) => {
             if (willDelete) {
-                const response = await crud.DELETE(`/api/categoria/${id}`);
-                if (response) {
-                    cargarCategorias();
-                    swal("La categoría ha sido eliminada", {
-                        icon: "success",
-                    });
+
+                const existe = await crud.GET(`/api/producto/homeFiltro/${id}`);
+                console.log(existe.producto.length);
+                if (existe.producto.length === 0) {
+
+
+                    const response = await crud.DELETE(`/api/categoria/${id}`);
+                    if (response) {
+                        cargarCategorias();
+                        swal("La categoría ha sido eliminada", {
+                            icon: "success",
+                        });
+                    } else {
+                        swal("Hubo un error durante la eliminación");
+                    }
                 } else {
-                    swal("Hubo un error durante la eliminación");
+                    swal("Hay productos relacionados, no se permite la eliminación");
                 }
             } else {
                 swal("Has cancelado el proceso de eliminación");
@@ -58,6 +67,7 @@ const Admin = () => {
     };
 
     const trabajarConProductos = async (id) => {
+        localStorage.setItem("cont", 0);
         navigate(`/home-productos/${id}`);
     };
 
@@ -72,7 +82,8 @@ const Admin = () => {
                     <tr>
                         <th className="border border-orange-300 border-2 px-5 py-1">Nombre Categoria</th>
                         <th className="border border-orange-300 border-2 px-5 py-1">Imagen Categoria</th>
-                        <th className="border border-orange-300 border-2 px-5 py-1" colSpan="3">Opciones disponibles</th>
+                        <th className="border border-orange-300 border-2 px-5 py-1" colSpan="3">Opciones disponibles
+                        </th>
                     </tr>
                     </thead>
 

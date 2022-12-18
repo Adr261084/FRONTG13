@@ -84,7 +84,9 @@ class crud {
             }
         }
         const url = `${back.api.baseURL}${resource}`;
+        console.log("CRUD DELETE");
         console.log(url);
+        console.log(resource);
         let response = (await (await fetch(url, data)).json());
         return response;
     }

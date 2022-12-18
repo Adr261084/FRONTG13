@@ -11,7 +11,6 @@ const ActualizarProducto = () => {
     const navigate = useNavigate();
     const {idProducto} = useParams();
 
-    console.log("idProducto actualizarProducto", idProducto);
     const [producto, setProducto] = useState({
         nombre: '',
         precio: '',
@@ -24,7 +23,6 @@ const ActualizarProducto = () => {
     const cargarProducto = async () => {
         try {
             const response = await crud.GET(`/api/producto/id/${idProducto}`);
-            console.log(response, "Desde cargarProducto actualizacion")
             setProducto(response.producto);
         } catch (e) {
             console.log(e);
@@ -33,7 +31,7 @@ const ActualizarProducto = () => {
 
     useEffect(() => {
         cargarProducto();
-    }, []);
+    }, [navigate]);
 
     const {nombre, imagen, stock, precio, descripcion} = producto;
 
@@ -54,7 +52,7 @@ const ActualizarProducto = () => {
             categoriaId: producto.categoriaId,
             descripcion: producto.descripcion
         }
-        console.log(data);
+        const idCategoria = data.categoriaId;
         const response = await crud.PUT(`/api/producto/${idProducto}`, data);
         console.log(response.msg || "ok");
 
@@ -73,7 +71,10 @@ const ActualizarProducto = () => {
                 }
             }
         });
-        navigate("/admin");
+        var contador = localStorage.getItem("cont") || 1;
+        contador ++;
+        localStorage.setItem("cont", contador);
+        navigate(`/home-productos/${idCategoria}`);
     }
 
     const onSubmit = (e) => {
@@ -111,18 +112,6 @@ const ActualizarProducto = () => {
                                        className="w-full mt-3 p-3 rounded-lg bg-gray-50"
                                        required/>
 
-                                <label className="uppercase text-gray-600 block text-xl font-bold">
-                                    Imagen
-                                </label>
-
-                                <input type="text"
-                                       placeholder="Nueva imagen producto"
-                                       id="imagen"
-                                       name="imagen"
-                                       value={imagen}
-                                       onChange={onChange}
-                                       className="w-full mt-3 p-3 rounded-lg bg-gray-50"
-                                       required/>
 
                                 <label className="uppercase text-gray-600 block text-xl font-bold">
                                     Descripción
@@ -162,6 +151,20 @@ const ActualizarProducto = () => {
                                        onChange={onChange}
                                        className="w-full mt-3 p-3 rounded-lg bg-gray-50"
                                        required/>
+
+                                <label className="uppercase text-gray-600 block text-xl font-bold">
+                                    Imagen
+                                </label>
+
+                                <input type="text"
+                                       placeholder="Nueva imagen producto"
+                                       id="imagen"
+                                       name="imagen"
+                                       value={imagen}
+                                       onChange={onChange}
+                                       className="w-full mt-3 p-3 rounded-lg bg-gray-50"
+                                       required/>
+
 
                                 <input
                                     type="submit"

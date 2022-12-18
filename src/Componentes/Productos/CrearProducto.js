@@ -74,6 +74,9 @@ const CrearProducto = () => {
             }
         });
 
+        var contador = localStorage.getItem("cont") || 1;
+        contador ++;
+        localStorage.setItem("cont", contador);
         navigate(`/home-productos/${idCategoria}`);
     }
 
@@ -156,7 +159,7 @@ const CrearProducto = () => {
                                 />
                                 <input
                                     type="submit"
-                                    value="Crear ViewProductos"
+                                    value="Crear Producto"
                                     className="bg-violet-600 mb-5 w-full py-3 text-white uppercase font-bold rounded hover:cursor-pointer hover:bg-violet-400 transition-colors"
                                 />
                                 <Link

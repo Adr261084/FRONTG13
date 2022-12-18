@@ -1,8 +1,8 @@
 import React, {useState} from "react";
-import Header from "./Header";
-import Sidebar from "./Sidebar";
+import Header from "../Header";
+import Sidebar from "../Sidebar";
 import {Link, useNavigate} from "react-router-dom";
-import crud from "../Conexiones/crud";
+import crud from "../../Conexiones/crud";
 import swal from "sweetalert";
 
 const CrearCategoria = () => {
@@ -46,11 +46,8 @@ const CrearCategoria = () => {
             }
         });
 
-        setCategoria({
-            nombre: "",
-            imagen: ""
-        });
         navigate("/admin");
+
     }
 
     const onSubmit = (e) => {
