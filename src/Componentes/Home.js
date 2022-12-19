@@ -49,15 +49,18 @@ const Home = () => {
 
     return (
         <main className='flex-1'>
-            <div className='md:w-2/3 lg:w-2/5 p-10'>
-                <h1 className="inline bg-gradient-to-r from-indigo-200 via-violet-700 to-indigo-200 bg-clip-text font-display text-5xl tracking-tight text-transparent">
+            <div className="md:flex md:justify-between p-8 ">
+                <h2 className="text-4xl text-violet-400 font-bold text-center mb-5 md:mb-0">
                     Proyecto G13 - Grupo 4
-                </h1>
-                <Link
-                    to={"/login"}
-                    className="block text-center my-5 text-violet-600 uppercase text-sm"
-                >Inicio de Sesión</Link>
-
+                </h2>
+                <div className="flex flex-col md:flex-row items-center gap-4 p-4">
+                    <Link
+                        to={"/login"}
+                        className="bg-violet-600 mb-5 w-full py-3 text-white
+                            uppercase font-bold rounded hover:cursor-pointer
+                            hover:bg-violet-400 transition-colors p-2"
+                    >Inicio de Sesión</Link>
+                </div>
             </div>
             <div>
                 <div className="md:justify-center flex p-5 bg-gradient-to-r from-gray-700 via-gray-200 to-gray-700">
@@ -116,14 +119,15 @@ const Home = () => {
                                 </div>
                             </div>
                         </div>
-                        <div >
+                        <div>
                             <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
                                 <div
                                     className="bg-gray-200 mt-8 grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8
                                     rounded-lg border-b-blue-600 border-2">
                                     {productos.map((product) => (
                                         <div key={product._id}>
-                                            <div className="relative rounded-lg border-amber-600 border-2 bg-white hover:bg-amber-500">
+                                            <div
+                                                className="relative rounded-lg border-amber-600 border-2 bg-white hover:bg-amber-500">
                                                 <div className="relative h-72 w-full overflow-hidden rounded-lg">
                                                     <img
                                                         src={product.imagen}
