@@ -40,7 +40,7 @@ const ListarPedidos = () => {
                     <div className="mt-10 flex justify-center">
                         <h1 className="inline bg-gradient-to-r from-indigo-200 via-violet-700 to-indigo-200
                         bg-clip-text
-                        font-display text-3xl tracking-tight text-transparent justify-center">
+                        font-display text-6xl tracking-tight text-transparent justify-center">
                             Lista de pedidos
                         </h1>
                     </div>
@@ -53,7 +53,7 @@ const ListarPedidos = () => {
                             Regresar
                         </Link>
                     </div>
-                    <div className="bg-gray-600 shadow mt-10 rounded-lg">
+                    <div className="bg-gray-600 shadow mt-10 rounded-lg p-5">
                         {pedidos.map(pedido =>
                             <ViewPedido
                                 key={pedido._id}

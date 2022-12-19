@@ -33,7 +33,7 @@ const ViewPedido = (props) => {
                     <label className="font-bold text-white text-xl p-3">Id pedido: {pedido._id}</label>
                     <img className="bordered border-2 " src={imagen} alt="No resource" width="180" />
                 </div>
-                <div className="flex, flex-col, items-start p-3">
+                <div className="flex, flex-col, items-start p-3 border-2 border-gray-900 rounded-lg">
 
                     <p className="mb-1 text-xl text-gray-50 font-bold">
                         producto comprado: {nombre}
@@ -61,8 +61,8 @@ const ViewPedido = (props) => {
                         Fecha de la compra: {format(parseISO(fechaPedido), 'yyyy/mm/dd')}
                     </p>
                 </div>
-                <br/>
             </div>
+            <br/>
         </>
     );
 }

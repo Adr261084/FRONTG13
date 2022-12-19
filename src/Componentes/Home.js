@@ -51,7 +51,7 @@ const Home = () => {
         <main className='flex-1'>
             <div className='md:w-2/3 lg:w-2/5 p-10'>
                 <h1 className="inline bg-gradient-to-r from-indigo-200 via-violet-700 to-indigo-200 bg-clip-text font-display text-5xl tracking-tight text-transparent">
-                    Proyecto G13
+                    Proyecto G13 - Grupo 4
                 </h1>
                 <Link
                     to={"/login"}
@@ -59,18 +59,21 @@ const Home = () => {
                 >Inicio de Sesión</Link>
 
             </div>
-            <div className="bg-white">
-                <div className="md:justify-center flex bg-gray-100 p-5">
+            <div>
+                <div className="md:justify-center flex p-5 bg-gradient-to-r from-gray-700 via-gray-200 to-gray-700">
                     <label
-                        className="inline bg-gradient-to-r from-indigo-800 via-blue-700 to-indigo-800 bg-clip-text font-display text-5xl tracking-tight text-transparent">
+                        className="inline bg-gradient-to-r from-indigo-800 via-blue-700 to-indigo-800 bg-clip-text
+                        font-display text-5xl tracking-tight text-transparent">
                         Lista productos
                     </label>
                 </div>
                 <div className="py-5 sm:py-4 xl:mx-auto xl:max-w-7xl xl:px-5 rounded-lg border-b-amber-600 border-2 ">
                     <div className="px-4 sm:flex sm:items-start sm:justify-between sm:px-6 lg:px-8 xl:px-0 align-top">
                         <div className="mt-4 flow-root ">
-                            <div className="-my-2">
-                            <h2 className="text-2xl bg-blue-100 font-bold tracking-tight text-gray-900 rounded-lg text-center ">Filtro por categoria</h2>
+                            <div className="-my-2 bg-white rounded-lg p-1">
+                                <h2 className="text-2xl bg-blue-100 font-bold tracking-tight text-gray-900 rounded-lg text-center ">
+                                    Filtro por categoria
+                                </h2>
                                 <div className="relative box-content overflow-x-auto py-2 xl:overflow-visible">
                                     <div
                                         className="flex justify-center w-auto border-spacing-2 border-2
@@ -113,14 +116,14 @@ const Home = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="bg-gray-100 rounded-lg border-b-amber-600 border-2">
+                        <div >
                             <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
                                 <div
-                                    className="mt-8 grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8
+                                    className="bg-gray-200 mt-8 grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8
                                     rounded-lg border-b-blue-600 border-2">
                                     {productos.map((product) => (
                                         <div key={product._id}>
-                                            <div className="relative rounded-lg border-amber-600 border-2">
+                                            <div className="relative rounded-lg border-amber-600 border-2 bg-white hover:bg-amber-500">
                                                 <div className="relative h-72 w-full overflow-hidden rounded-lg">
                                                     <img
                                                         src={product.imagen}
@@ -156,7 +159,8 @@ const Home = () => {
                                                         return (
                                                             <div className="mt-6 p-2">
                                                                 <button
-                                                                    className="relative flex items-center justify-center bg-blue-200 py-3 px-3 text-sm font-medium text-gray-900 hover:bg-gray-200 hover:text-red-400 rounded-lg"
+                                                                    className="relative flex items-center justify-center bg-blue-200 py-3 px-3 text-sm
+                                                                    font-medium text-gray-900 hover:bg-gray-200 hover:text-red-800 hover:font-bold rounded-lg"
                                                                 >
                                                                     No hay stock disponible<span
                                                                     className="sr-only">, {product.nombre}</span>

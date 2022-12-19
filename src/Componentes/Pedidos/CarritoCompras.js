@@ -34,7 +34,6 @@ const CarritoCompras = () => {
 
     const realizarPedido = async (evento) => {
         evento.preventDefault();
-        console.log("Comprando");
         if (producto.stock < compra.unidades) {
             const mensaje = "stock insuficiente para su pedido";
             swal({
@@ -44,7 +43,17 @@ const CarritoCompras = () => {
                     }
                 }
             });
-        } else {
+        } else if (compra.unidades <= 0) {
+            const mensaje = "Debe seleccionar o digitar unidades validas";
+            swal({
+                title: 'error', text: mensaje, icon: 'error', buttons: {
+                    confirm: {
+                        text: 'Ok', value: true, visible: true, className: 'btn btn-danger', closeModal: true
+                    }
+                }
+            });
+        }
+        else {
             var totalPedido = producto.precio * compra.unidades;
             const data = {
                 nombreComprador: compra.nombreComprador,

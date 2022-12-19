@@ -76,38 +76,39 @@ const Admin = () => {
         <div className="md:flex md:min-h-screen">
             <Sidebar/>
             <div>
-                <table className="table table-bordered "
-                       style={{borderColor: "blue", borderBlockWidth: 2, tableLayout: "-moz-initial"}}>
-                    <thead className="bg-amber-50">
+                <table >
+                    <thead className="bg-blue-100">
                     <tr>
-                        <th className="border border-orange-300 border-2 px-5 py-1">Nombre Categoria</th>
-                        <th className="border border-orange-300 border-2 px-5 py-1">Imagen Categoria</th>
-                        <th className="border border-orange-300 border-2 px-5 py-1" colSpan="3">Opciones disponibles
+                        <th className="px-5 py-1">Nombre Categoria</th>
+                        <th className="px-5 py-1">Imagen Categoria</th>
+                        <th className="px-5 py-1" colSpan="3">Opciones disponibles
                         </th>
                     </tr>
                     </thead>
 
-                    <tbody className="bg-gray-50">
+                    <tbody className="bg-blue-100">
                     {categoria.map(item =>
                         <tr key={item._id}>
-                            <td className="border border-orange-300 border-2 px-5 py-1">{item.nombre}</td>
-                            <td className="border border-orange-300 border-2 px-5 py-1">
+                            <td className="border border-gray-100 border-2 px-5 py-1 font-extrabold text-center">
+                                {item.nombre}
+                            </td>
+                            <td className="border border-gray-100 border-2 px-5 py-1">
                                 <img src={item.imagen} alt="no-resource" width="200" height="200"></img>
                             </td>
-                            <td className="border border-orange-300 border-2 px-5 py-1">
-                                <button className="bg-blue-600 rounded-lg px-2 "
+                            <td className="border border-gray-100 border-2 px-5 py-1">
+                                <button className="bg-blue-600 rounded-lg px-2 hover:bg-blue-400"
                                         onClick={() => actualizarCategoria(`${item._id}`)}>
                                     Editar<br/>Categoria
                                 </button>
                             </td>
-                            <td className="border border-orange-300 border-2 px-5 py-1">
-                                <button className="bg-red-600 rounded-lg px-2 "
+                            <td className="border border-gray-100 border-2 px-5 py-1">
+                                <button className="bg-red-600 rounded-lg px-2 hover:bg-red-400"
                                         onClick={() => eliminarCategoria(`${item._id}`)}>
                                     Eliminar<br/>Categoria
                                 </button>
                             </td>
-                            <td className="border border-orange-300 border-2 px-5 py-1">
-                                <button className="bg-green-600 rounded-lg px-2 "
+                            <td className="border border-gray-100 border-2 px-5 py-1">
+                                <button className="bg-green-600 rounded-lg px-2 hover:bg-green-400"
                                         onClick={() => trabajarConProductos(`${item._id}`)}>
                                     Trabajar con <br/> productos
                                 </button>
