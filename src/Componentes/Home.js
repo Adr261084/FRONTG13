@@ -59,7 +59,7 @@ const Home = () => {
                         className="bg-violet-600 mb-5 w-full py-3 text-white
                             uppercase font-bold rounded hover:cursor-pointer
                             hover:bg-violet-400 transition-colors p-2"
-                    >Inicio de Sesión</Link>
+                    >Administrar</Link>
                 </div>
             </div>
             <div>
