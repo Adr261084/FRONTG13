@@ -108,11 +108,12 @@ const CarritoCompras = () => {
         });
     };
     return (<>
-        <h2 className="text-white bg-gray-50">Ingresar información del pedido</h2>
-        <div className="border-r flex bg-gray-500 p-5 rounded-lg md:justify-between items-center">
+        <h2 className="text-indigo-900 bg-gray-50 text-5xl text-center p-8">Ingresar información del pedido</h2>
+        <div className="md:flex md:min-h-screen">
+        <div className="border-r flex bg-gradient-to-r from-black to-gray-400 p-5 rounded-lg md:justify-between items-center">
 
             <img src={imagen} alt="no-resource" width="200" height={200}/>
-            <div className="flex, flex-col, items-start p-3">
+            <div className="flex, flex-col, items-start p-3 rounded-lg border-2 border-gray-300 bg-gray-800">
 
                 <p className="mb-1 text-xl text-gray-50 font-bold">
                     {nombre}
@@ -129,17 +130,15 @@ const CarritoCompras = () => {
             </div>
             <br/>
         </div>
-        <div className="md:flex md:min-h-screen">
-
             <main className="flex-1">
-                <h1 className="inline bg-gradient-to-r
+                <h1 className="bg-gradient-to-r
                         from-indigo-200 via-violet-700 to-indigo-200 bg-clip-text
-                        font-display text-5xl tracking-tight text-transparent">
+                        font-display text-5xl tracking-tight text-transparent text-center p-5">
                     Datos del pedido </h1>
-                <div className="mt-10 flex justify-center">
-                    <div className="mt-10 flex justify-center">
+                <div className="mt-1 flex justify-center">
+                    <div className="mt-1 flex justify-center">
                         <form onSubmit={realizarPedido}
-                              className="my-10 bg-white shadow-orange-500 rounded-lg p-10">
+                              className="my-1 bg-white shadow-orange-500 rounded-lg p-10">
 
                             <label className="uppercase text-gray-600 block text-xl font-bold">
                                 Nombre
